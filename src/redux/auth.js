@@ -1,8 +1,8 @@
 import {push} from 'react-router-redux'
 
 // Actions
-const SUCCESS = 'pastiche/auth/SUCCESS'
-const FAIL    = 'pastiche/auth/FAIL'
+const SUCCESS = 'slick/auth/SUCCESS'
+const FAIL    = 'slick/auth/FAIL'
 
 // Initial
 const initialState = {
