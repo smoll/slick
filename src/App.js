@@ -1,15 +1,25 @@
 import React from 'react'
+import {Provider} from 'react-redux'
+import {ConnectedRouter} from 'react-router-redux'
+import {Route, Switch} from 'react-router'
 
-import LoginForm from './LoginForm'
-import Footer from './Footer'
+import store, {history} from './redux/store'
+import PrivateRoute from './container/PrivateRoute'
+import Login from './component/Login'
+import Home from './container/Home'
+
 
 class App extends React.Component {
   render() {
     return (
-      <div className='App'>
-        <LoginForm />
-        <Footer />
-      </div>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <PrivateRoute exact path="/" component={Home} />
+          </Switch>
+        </ConnectedRouter>
+      </Provider>
     )
   }
 }

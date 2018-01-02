@@ -1,5 +1,5 @@
 import React from 'react'
-import {Intent, Spinner, Icon} from '@blueprintjs/core'
+import {Intent, Icon} from '@blueprintjs/core'
 
 export default () => {
   return (
