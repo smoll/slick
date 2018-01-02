@@ -38,7 +38,7 @@ const authFail = () => ({
 })
 
 // Side Effects
-export function login () {
+export function login() {
   return dispatch => {
     console.log('#login called!')
     dispatch(authSuccess())
@@ -46,7 +46,7 @@ export function login () {
   }
 }
 
-export function logout () {
+export function logout() {
   return dispatch => {
     console.log('#logout called!')
     dispatch(authFail())
