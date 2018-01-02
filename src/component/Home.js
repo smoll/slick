@@ -1,5 +1,4 @@
 import React from 'react'
-import {Intent} from '@blueprintjs/core'
 
 import Header from './Header'
 import MainPanel from './MainPanel'
@@ -16,7 +15,7 @@ export default ({logout}) => (
       <div style={styles.buttons}>
         <button type="button" className="pt-button pt-intent-danger" onClick={logout}>
           Logout
-          <span class="pt-icon-standard pt-icon-refresh pt-align-right"></span>
+          <span className="pt-icon-standard pt-icon-refresh pt-align-right"></span>
         </button>
       </div>
     </MainPanel>

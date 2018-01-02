@@ -1,49 +1,43 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import {Grid, Row, Col} from 'react-flexbox-grid'
 
 import MainPanel from './MainPanel'
 
-class LoginForm extends Component {
-  render() {
-    const {login} = this.props
-    return (
-      <MainPanel>
-        <div className='pt-card pt-elevation-3'>
-          <h5 style={styles.title}>Please login to continue</h5>
+const LoginForm = ({login}) => (
+  <MainPanel>
+    <div className='pt-card pt-elevation-3'>
+      <h5 style={styles.title}>Please login to continue</h5>
 
-          <div className='pt-form-group'>
-            <label className='pt-label' htmlFor='email'>
-              Email
-            </label>
-            <div className='pt-form-content'>
-              <input id='email' className='pt-input' style={styles.input} placeholder='test@test.com' type='email' dir='auto' />
-              <div className='pt-form-helper-text'>(Hint: test@test.com)</div>
-            </div>
-          </div>
-
-          <div className='pt-form-group'>
-            <label className='pt-label' htmlFor='password'>
-              Password
-            </label>
-            <div className='pt-form-content'>
-              <input id='password' className='pt-input' style={styles.input} type='password' dir='auto' />
-              <div className='pt-form-helper-text'>(Hint: test1234)</div>
-            </div>
-          </div>
-
-          <div style={styles.buttons}>
-            <button type='button' className='pt-button pt-intent-primary' onClick={login}>
-              Login
-              <span className='pt-icon-standard pt-icon-arrow-right pt-align-right'></span>
-            </button>
-          </div>
-
+      <div className='pt-form-group'>
+        <label className='pt-label' htmlFor='email'>
+          Email
+        </label>
+        <div className='pt-form-content'>
+          <input id='email' className='pt-input' style={styles.input} placeholder='test@test.com' type='email' dir='auto' />
+          <div className='pt-form-helper-text'>(Hint: test@test.com)</div>
         </div>
-      </MainPanel>
-    )
-  }
-}
+      </div>
+
+      <div className='pt-form-group'>
+        <label className='pt-label' htmlFor='password'>
+          Password
+        </label>
+        <div className='pt-form-content'>
+          <input id='password' className='pt-input' style={styles.input} type='password' dir='auto' />
+          <div className='pt-form-helper-text'>(Hint: test1234)</div>
+        </div>
+      </div>
+
+      <div style={styles.buttons}>
+        <button type='button' className='pt-button pt-intent-primary' onClick={login}>
+          Login
+          <span className='pt-icon-standard pt-icon-arrow-right pt-align-right'></span>
+        </button>
+      </div>
+
+    </div>
+  </MainPanel>
+)
 
 LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
