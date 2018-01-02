@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Header from './Header'
-import LoginForm from './LoginForm'
+import LoginForm from '../container/LoginForm'
 import Footer from './Footer'
 
 export default () => (
