@@ -1,19 +1,14 @@
-import React, {Component} from 'react'
-import {Intent, Spinner, Icon} from "@blueprintjs/core"
+import React from 'react'
 
 import LoginForm from './LoginForm'
+import Footer from './Footer'
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <LoginForm />
-
-        <footer style={{paddingTop: '4em', paddingBottom: '2em'}}>
-          <center>
-            Made in New York with <Icon iconName="pt-icon-heart" intent={Intent.DANGER} />
-          </center>
-        </footer>
+        <Footer />
       </div>
     )
   }
