@@ -20,7 +20,7 @@ A minimal example for reference
   browser.quit
   \`\`\`
 
-#### Browser methods
+#### Browser Methods
 
 Some methods available to a \`browser\` instance. For a full list, try \`browser.methods.sort\` (Ruby technique)
 
@@ -29,16 +29,16 @@ Some methods available to a \`browser\` instance. For a full list, try \`browser
   * \`browser.text\` gets text of the entire page
   * \`browser.quit\` quits the browser window
 
-#### Element selectors
+#### Element Selectors
 
-The different ways you can locate a HTML element on a page. The most specific way (\`id\` or \`name\`) is usually the best,
-otherwise if the HTML structure changes, your test code will break!
+The different ways you can locate a HTML element on a page. The most specific selector (\`id\` or \`name\`) is usually the best,
+otherwise your test code might be very brittle!
 
   * \`browser.div.text\` gets text of the first \`<div>\` on the page _**(not great)**_
   * \`browser.div(class: 'content').text\` gets text of the first \`<div class="content">\` _**(better)**_
-  * \`browser.div(id: 'intro').text\` gets text of the first \`<div id="intro">\` _**(best!)**_
+  * \`browser.div(id: 'intro').text\` gets text of the unique \`<div id="intro">\` _**(best!)**_
 
-#### Elements <-> Accessor methods
+#### HTML Elements vs. Accessor Methods
 
 Also see [the official Watir website](http://watir.com/guides/elements/) for the most up-to-date list.
 `
