@@ -66,6 +66,7 @@ Boilerplate
 export default () => (
   <Content>
     <h2 style={styles.title}>Cheat Sheets</h2>
+    <p style={styles.subtitle}>Use&nbsp;<code>Ctrl + F</code>&nbsp;/&nbsp;<code>⌘ + F</code>&nbsp;to search the page.</p>
     <ReactMarkdown source={watir} />
     <AccessorTable />
 
@@ -76,6 +77,11 @@ export default () => (
 
 const styles = {
   title: {
+    display: 'flex',
+    justifyContent: 'center',
+    lineHeight: '1.25em',
+  },
+  subtitle: {
     display: 'flex',
     justifyContent: 'center',
     paddingBottom: '1em',

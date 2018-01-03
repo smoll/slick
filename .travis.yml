@@ -17,4 +17,5 @@ script:
 deploy:
   provider: surge
   project: ./build/
+  skip_cleanup: true
   domain: slick.surge.sh
