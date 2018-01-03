@@ -1,9 +1,7 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import Content from './Content'
 import AccessorTable from './AccessorTable'
-
-import renderers from '../style/markdown'
+import Markdown from './Markdown'
 
 const watir = `
 ### Watir
@@ -50,7 +48,7 @@ const rspec = `
 
 #### Boilerplate
 
-  \`\`\`rb
+  \`\`\`
   RSpec.describe "Slick's website" do
     before :all do
       @browser = Watir::Browser.new :chrome
@@ -80,16 +78,9 @@ export default () => (
     <h2 style={styles.title}>Cheat Sheets</h2>
     <p style={styles.subtitle}>Use&nbsp;<code>Ctrl + F</code>&nbsp;/&nbsp;<code>⌘ + F</code>&nbsp;to search the page.</p>
 
-    <ReactMarkdown
-      source={watir}
-      renderers={renderers}
-    />
+    <Markdown source={watir} />
     <AccessorTable />
-
-    <ReactMarkdown
-      source={rspec}
-      renderers={renderers}
-    />
+    <Markdown source={rspec} />
 
   </Content>
 )

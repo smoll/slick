@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import {Intent, Position, Tooltip} from '@blueprintjs/core'
+import Markdown from './Markdown'
 
 const AccessorTable = () => (
   <table className="pt-table pt-striped" style={{width: '100%'}}>
@@ -14,7 +14,7 @@ const AccessorTable = () => (
     <tbody>
       <tr>
         <td>
-          <ReactMarkdown source={'<input type="text">'} />
+          <Markdown source={'<input type="text">'} />
             <br />
             e.g.&nbsp;
             <Tooltip
@@ -26,12 +26,12 @@ const AccessorTable = () => (
               <input id="u" type="text" style={{width: '5em'}} />
             </Tooltip>
         </td>
-        <td><ReactMarkdown source={'text_field'} /></td>
-        <td><ReactMarkdown source={'Setting the value to a String\n```\nbrowser.text_field(id: \'u\').set \'someuser\'\n```'} /></td>
+        <td><Markdown source={'text_field'} /></td>
+        <td><Markdown source={'Setting the value to a String\n```\nbrowser.text_field(id: \'u\').set \'someuser\'\n```'} /></td>
       </tr>
       <tr>
         <td>
-          <ReactMarkdown source={'<select />'} />
+          <Markdown source={'<select />'} />
           <br />
           e.g.&nbsp;
           <Tooltip
@@ -46,12 +46,12 @@ const AccessorTable = () => (
             </select>
           </Tooltip>
         </td>
-        <td><ReactMarkdown source={'select_list'} /></td>
-        <td><ReactMarkdown source={'Selecting the option with a specific String value\n```\nbrowser.select_list(id: \'s\').select \'Fail\'\n```'} /></td>
+        <td><Markdown source={'select_list'} /></td>
+        <td><Markdown source={'Selecting the option with a specific String value\n```\nbrowser.select_list(id: \'s\').select \'Fail\'\n```'} /></td>
       </tr>
       <tr>
         <td>
-          <ReactMarkdown source={'<input type="radio">'} />
+          <Markdown source={'<input type="radio">'} />
           <br />
           e.g.&nbsp;
           <Tooltip
@@ -67,8 +67,8 @@ const AccessorTable = () => (
             </form>
           </Tooltip>
         </td>
-        <td><ReactMarkdown source={'radio'} /></td>
-        <td><ReactMarkdown source={'Clicking a specific radio button with a specific value\n```rb\nr = browser.radio(value: \'female\')\nr.exists?\nr.set\n```'} /></td>
+        <td><Markdown source={'radio'} /></td>
+        <td><Markdown source={'Clicking a specific radio button with a specific value\n```rb\nr = browser.radio(value: \'female\')\nr.exists?\nr.set\n```'} /></td>
       </tr>
     </tbody>
   </table>

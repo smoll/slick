@@ -1,4 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import Lowlight from 'react-lowlight'
+import shallowCompare from 'react-addons-shallow-compare'
+import js from 'highlight.js/lib/languages/javascript'
+import rb from 'highlight.js/lib/languages/ruby'
+
+Lowlight.registerLanguage('js', js)
+Lowlight.registerLanguage('rb', rb)
 
 // Override ReactMarkdown default styles
 const styles = {
@@ -39,11 +47,20 @@ function ListItem(props) {
   const styleProps = {style: styles.li}
   return createElement('li', {...styleProps, ...getCoreProps(props)}, checkbox, props.children)
 }
+const CodeBlock = ({language, value}) => {
+  return (
+    <Lowlight
+      language={language || 'rb'}
+      value={value}
+    />
+  )
+}
 
 const renderers = {
-  paragraph: Paragraph,
+  code: CodeBlock,
   heading: Heading,
   listItem: ListItem,
+  paragraph: Paragraph,
 }
 
 export default renderers
