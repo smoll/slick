@@ -2,6 +2,8 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import Content from './Content'
 
+import renderers from '../style/markdown'
+
 const intro = `
 I'm happy to introduce **Slick: The QA Automation Learning Stack**: a set of software
 tools that facilitate learning _how to code_ and write _simple, robust_ browser-based
@@ -28,7 +30,10 @@ JavaScript-based browser automation in the future.
 export default () => (
   <Content>
     <h2 style={styles.title}>Intro</h2>
-    <ReactMarkdown source={intro} />
+    <ReactMarkdown
+      source={intro}
+      renderers={renderers}
+    />
     <br />
     <div class="pt-callout pt-icon-info-sign">
       <h5>What&#39;s Watir?</h5>
@@ -37,7 +42,10 @@ export default () => (
       except with a simpler, more approachable syntax.
     </div>
     <br />
-    <ReactMarkdown source={intro2} />
+    <ReactMarkdown
+      source={intro2}
+      renderers={renderers}
+    />
   </Content>
 )
 

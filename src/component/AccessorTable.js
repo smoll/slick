@@ -61,14 +61,14 @@ const AccessorTable = () => (
             position={Position.RIGHT}
           >
             <form>
-            <input type="radio" name="gender" value="male" checked /> Male&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="gender" value="female" /> Female&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" value="male" checked /> M&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" value="female" /> F&nbsp;&nbsp;&nbsp;
             <input type="radio" name="gender" value="other" /> Other
             </form>
           </Tooltip>
         </td>
         <td><ReactMarkdown source={'radio'} /></td>
-        <td><ReactMarkdown source={'Clicking a specific radio button with a specific value\n```rb\nr = browser.radio(value: \'Female\')\nr.exists?\nr.set\n```'} /></td>
+        <td><ReactMarkdown source={'Clicking a specific radio button with a specific value\n```rb\nr = browser.radio(value: \'female\')\nr.exists?\nr.set\n```'} /></td>
       </tr>
     </tbody>
   </table>

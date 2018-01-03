@@ -3,6 +3,8 @@ import ReactMarkdown from 'react-markdown'
 import Content from './Content'
 import AccessorTable from './AccessorTable'
 
+import renderers from '../style/markdown'
+
 const watir = `
 ### Watir
 
@@ -46,7 +48,7 @@ Also see [the official Watir website](http://watir.com/guides/elements/) for the
 const rspec = `
 ### RSpec
 
-Boilerplate
+#### Boilerplate
 
   \`\`\`rb
   RSpec.describe "Slick's website" do
@@ -61,16 +63,33 @@ Boilerplate
     end
   end
   \`\`\`
+
+#### Expectations
+
+##### Text
+
+\`\`\`
+actual = browser.div.text
+expected = "Welcome back!"
+expect(actual).to eq(expected)
+\`\`\`
 `
 
 export default () => (
   <Content>
     <h2 style={styles.title}>Cheat Sheets</h2>
     <p style={styles.subtitle}>Use&nbsp;<code>Ctrl + F</code>&nbsp;/&nbsp;<code>⌘ + F</code>&nbsp;to search the page.</p>
-    <ReactMarkdown source={watir} />
+
+    <ReactMarkdown
+      source={watir}
+      renderers={renderers}
+    />
     <AccessorTable />
 
-    <ReactMarkdown source={rspec} />
+    <ReactMarkdown
+      source={rspec}
+      renderers={renderers}
+    />
 
   </Content>
 )
@@ -86,9 +105,5 @@ const styles = {
     justifyContent: 'center',
     paddingBottom: '1em',
     lineHeight: '1.25em',
-  },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'flex-end',
   },
 }
