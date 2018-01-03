@@ -42,7 +42,7 @@ export function login() {
   return dispatch => {
     console.log('#login called!')
     dispatch(authSuccess())
-    dispatch(push('/'))
+    dispatch(push('/dashboard'))
   }
 }
 
@@ -50,6 +50,6 @@ export function logout() {
   return dispatch => {
     console.log('#logout called!')
     dispatch(authFail())
-    dispatch(push('/login'))
+    dispatch(push('/'))
   }
 }

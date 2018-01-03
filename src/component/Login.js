@@ -1,13 +1,9 @@
 import React from 'react'
-
-import Header from './Header'
+import Content from './Content'
 import LoginForm from '../container/LoginForm'
-import Footer from './Footer'
 
 export default () => (
-  <div>
-    <Header />
+  <Content>
     <LoginForm />
-    <Footer />
-  </div>
+  </Content>
 )

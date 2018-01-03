@@ -1,7 +1,7 @@
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as authActions from '../redux/auth'
-import Home from '../component/Home'
+import Dashboard from '../component/Dashboard'
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
@@ -9,4 +9,4 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Home)
+export default connect(null, mapDispatchToProps)(Dashboard)

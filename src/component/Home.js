@@ -1,36 +1,52 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import Content from './Content'
 
-import Header from './Header'
-import MainPanel from './MainPanel'
-import Footer from './Footer'
+const intro = `
+I'm happy to introduce **Slick: The QA Automation Learning Stack**: a set of software
+tools that facilitate learning _how to code_ and write _simple, robust_ browser-based
+acceptance tests, for absolute beginners or Quality Assurance / Testing Professionals
+with manual testing backgrounds.
 
-export default ({logout}) => (
-  <div>
-    <Header />
-    <MainPanel>
-      <h2 style={styles.title}>Welcome to the home page!</h2>
+The primary tools we'll use are:
 
-      <p style={styles.content}>Lorem ipsum dolor sit amet, netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+1. **Ruby**, a dynamic programming language, in which we'll implement our test logic.
+2. **Watir**, for "driving", or automating, the browser.
+3. **RSpec**, the Ruby test framework, for writing "expectations", or pass/fail assertions.
+`
 
-      <div style={styles.buttons}>
-        <button type="button" className="pt-button pt-intent-danger" onClick={logout}>
-          Logout
-          <span className="pt-icon-standard pt-icon-refresh pt-align-right"></span>
-        </button>
-      </div>
-    </MainPanel>
-    <Footer />
-  </div>
+const intro2 = `
+We chose these tools because they are well-known, battle-tested, and
+have a low barrier to entry. That said, there is a lot of enthusiasm around other
+tools, especially Google Chrome's [Puppeteer](https://github.com/GoogleChrome/puppeteer)
+and Graphcool's fantastic [Chromeless](https://github.com/graphcool/chromeless)
+JavaScript package (which decreased test durations from ~20min to a few seconds
+for them!), so if there's enough interest, I'd be happy to write a guide for
+JavaScript-based browser automation in the future.
+`
+
+export default () => (
+  <Content>
+    <h2 style={styles.title}>Intro</h2>
+    <ReactMarkdown source={intro} />
+    <br />
+    <div class="pt-callout pt-icon-info-sign">
+      <h5>What&#39;s Watir?</h5>
+      Watir, formerly known as Watir WebDriver, is a wrapper around the Ruby
+      bindings for Selenium WebDriver. You can do all the same things as Selenium,
+      except with a simpler, more approachable syntax.
+    </div>
+    <br />
+    <ReactMarkdown source={intro2} />
+  </Content>
 )
 
 const styles = {
   title: {
     display: 'flex',
     justifyContent: 'center',
-  },
-  content: {
-    paddingTop: '1em',
     paddingBottom: '1em',
+    lineHeight: '1.25em',
   },
   buttons: {
     display: 'flex',
