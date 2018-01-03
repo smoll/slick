@@ -5,7 +5,11 @@ import {withRouter, Link} from 'react-router-dom'
 const Header = ({history}) => (
   <nav className="pt-navbar pt-dark">
     <div className="pt-navbar-group pt-align-left">
-      <div className="pt-navbar-heading"><Link style={styles.link} to="/">Slick</Link></div>
+      <div className="pt-navbar-heading">
+        <Link style={styles.link} to="/">
+          <span className="pt-icon-standard pt-icon-console" /> Slick
+        </Link>
+      </div>
       {/* <input className="pt-input" placeholder="Search files..." type="text" /> */}
     </div>
     <div className="pt-navbar-group pt-align-right">

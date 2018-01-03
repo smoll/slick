@@ -1,7 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Lowlight from 'react-lowlight'
-import shallowCompare from 'react-addons-shallow-compare'
 import js from 'highlight.js/lib/languages/javascript'
 import rb from 'highlight.js/lib/languages/ruby'
 
