@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import {Intent, Position, Tooltip, Icon} from '@blueprintjs/core'
+import {Intent, Position, Tooltip} from '@blueprintjs/core'
 
 const AccessorTable = () => (
   <table className="pt-table pt-striped" style={{width: '100%'}}>

@@ -1,0 +1,20 @@
+# The type of programming language you are building the app
+language: node_js
+
+# Specify node.js versions
+node_js:
+    - "8"
+
+# Before running the actual build
+before-script:
+    - npm install # to install all your project dependencies
+    - npm install -global surge # to install surge.sh command line package
+
+# This is the actual build step
+script:
+    - npm run predeploy
+
+deploy:
+  provider: surge
+  project: ./build/
+  domain: slick.surge.sh
