@@ -4,7 +4,7 @@ import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
-import './style/github.css'
+import './asset/github.css'
 import 'normalize.css/normalize.css'
 import '@blueprintjs/core/dist/blueprint.css'
 

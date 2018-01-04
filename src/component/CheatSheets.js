@@ -13,6 +13,8 @@ export default () => (
     <AccessorTable />
     <Markdown source={files.get('rspec-cheatsheet.md')} />
 
+    <Markdown source={files.get('bundler-cheatsheet.md')} />
+
   </Content>
 )
 

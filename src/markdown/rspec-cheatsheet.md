@@ -3,6 +3,8 @@
 #### Boilerplate
 
 ```
+# /spec/homepage_spec.rb
+
 RSpec.describe "Slick's website" do
   before :all do
     @browser = Watir::Browser.new :chrome
@@ -12,6 +14,10 @@ RSpec.describe "Slick's website" do
     @browser.goto 'http://slick.surge.sh'
     @browser.link(id: 'cheat-sheet-link').click
     expect(browser.h2.text).to include /cheat sheet/i
+  end
+
+  after :all do
+    @browser.quit
   end
 end
 ```
