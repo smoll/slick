@@ -1,23 +1,11 @@
 import React from 'react'
 import Content from './Content'
-import Markdown from './Markdown'
-import Note from './Note'
-import {files} from '../helper/markdown'
+import RawMarkdown from './RawMarkdown'
 
 export default () => (
   <Content>
     <h2 style={styles.title}>Intro</h2>
-    <Markdown source={files.get('intro-1.md')} />
-
-    <Note
-      title="What's Watir?"
-      text={
-        `Watir, formerly known as Watir WebDriver, is a wrapper around the Ruby
-        bindings for Selenium WebDriver. You can do all the same things as Selenium,
-        except with a simpler, more approachable syntax.`
-      } />
-
-    <Markdown source={files.get('intro-2.md')} />
+    <RawMarkdown file='intro.md' />
   </Content>
 )
 
