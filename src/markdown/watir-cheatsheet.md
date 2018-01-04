@@ -4,15 +4,15 @@
 
 A minimal example for reference
 
-  `rb
-  browser = Watir::Browser.new :chrome
+```rb
+browser = Watir::Browser.new :chrome
 
-  browser.goto 'http://slick.surge.sh'
-  browser.button.click
+browser.goto 'http://slick.surge.sh'
+browser.button.click
 
-  puts browser.title
-  browser.quit
-  `
+puts browser.title
+browser.quit
+```
 
 #### Browser Methods
 
