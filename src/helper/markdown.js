@@ -23,19 +23,19 @@ const styles = {
 }
 
 const createElement = React.createElement
-function getCoreProps(props) {
+const getCoreProps = (props) => {
   return props['data-sourcepos'] ? {'data-sourcepos': props['data-sourcepos']} : {}
 }
 
 // Renderers from https://github.com/rexxars/react-markdown/blob/f7c60d39db560aed7399939675e624d14ff82b40/src/renderers.js
-function Heading(props) {
+const Heading = (props) => {
   const styleProps = {style: styles.h}
   return createElement(`h${props.level}`, {...styleProps, ...getCoreProps(props)}, props.children)
 }
 const Paragraph = ({children}) => (
   <p style={styles.p}>{children}</p>
 )
-function ListItem(props) {
+const ListItem = (props) => {
   let checkbox = null
   if (props.checked !== null) {
     const checked = props.checked
@@ -53,12 +53,16 @@ const CodeBlock = ({language, value}) => {
     />
   )
 }
+const Table = ({children}) => (
+  <table className="pt-table pt-striped">{children}</table>
+)
 
 export const renderers = {
   code: CodeBlock,
   heading: Heading,
   listItem: ListItem,
   paragraph: Paragraph,
+  table: Table,
 }
 
 // HACK from https://github.com/facebookincubator/create-react-app/issues/2961#issuecomment-344198546
