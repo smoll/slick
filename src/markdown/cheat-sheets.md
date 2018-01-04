@@ -1,3 +1,8 @@
+<center>
+  <h2>Cheat Sheets</h2>
+  <p>Use <code>Ctrl + F</code> / <code>⌘ + F</code> to search the page.</p>
+</center>
+
 ### Watir
 
 #### Boilerplate

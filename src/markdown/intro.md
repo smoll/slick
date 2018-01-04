@@ -1,3 +1,7 @@
+<center>
+  <h2>Intro</h2>
+</center>
+
 I'm happy to introduce **Slick: The QA Automation Learning Stack**: a set of software
 tools that facilitate learning _how to code_ and write _simple, robust_ browser-based
 acceptance tests, for absolute beginners or Quality Assurance / Testing Professionals
