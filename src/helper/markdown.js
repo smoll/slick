@@ -2,6 +2,7 @@ import React from 'react'
 import Lowlight from 'react-lowlight'
 import js from 'highlight.js/lib/languages/javascript'
 import rb from 'highlight.js/lib/languages/ruby'
+import Note from '../component/Note'
 
 Lowlight.registerLanguage('js', js)
 Lowlight.registerLanguage('rb', rb)
@@ -56,10 +57,38 @@ const CodeBlock = ({language, value}) => {
 const Table = ({children}) => (
   <table className="pt-table pt-striped">{children}</table>
 )
+const Html = (props) => {
+  if (props.skipHtml) {
+    return null
+  }
+
+  // console.log('Html props:', props)
+
+  if (props.value.startsWith('<Note')) {
+    const regex = /text="(.+)"/
+    const matches = regex.exec(props.value)
+    // console.log('value', props.value)
+    // console.log('matches', matches)
+    const text = matches[1]
+    return <Note text={text} />
+  }
+
+  // Original definition follows...
+
+  const tag = props.isBlock ? 'div' : 'span'
+  if (props.escapeHtml) {
+    // @todo when fiber lands, we can simply render props.value
+    return createElement(tag, null, props.value)
+  }
+
+  const nodeProps = {dangerouslySetInnerHTML: {__html: props.value}}
+  return createElement(tag, nodeProps)
+}
 
 export const renderers = {
   code: CodeBlock,
   heading: Heading,
+  html: Html,
   listItem: ListItem,
   paragraph: Paragraph,
   table: Table,

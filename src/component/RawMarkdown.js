@@ -4,7 +4,7 @@ import {files, renderers} from '../helper/markdown'
 
 // Dangerously interpret the markdown files in `src/markdown`! Not for user input!!!
 const RawMarkdown = (props) => {
-  const source = files.get(props.file)
+  const source = props.file ? files.get(props.file) : props.source
   return (
     <ReactMarkdown
       renderers={renderers}

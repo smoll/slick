@@ -54,7 +54,7 @@ These are different ways you can locate a specific HTML element on a page.
 
 Also see [the official Watir website](http://watir.com/guides/elements/) for the most up-to-date list.
 
-| HTML | Method | Example Code |
+| HTML | Method | Example Code <Note text="Note that `b` refers to a browser instance, e.g. ```b = Watir::Browser.new```" /> |
 | ---- | ------ | ------------ |
 | `<input type="text">` | text_field | `b.text_field(id: 'u').set 'foo'` |
 | `<select />` | select_list | `b.select_list(id: 'm').select 'Camry'` |
