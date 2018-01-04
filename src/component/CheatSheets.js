@@ -2,85 +2,16 @@ import React from 'react'
 import Content from './Content'
 import AccessorTable from './AccessorTable'
 import Markdown from './Markdown'
-
-const watir = `
-### Watir
-
-#### Boilerplate
-
-A minimal example for reference
-
-  \`\`\`rb
-  browser = Watir::Browser.new :chrome
-
-  browser.goto 'http://slick.surge.sh'
-  browser.button.click
-
-  puts browser.title
-  browser.quit
-  \`\`\`
-
-#### Browser Methods
-
-Some methods available to a \`browser\` instance. For a full list, try \`browser.methods.sort\` (Ruby technique)
-
-  * \`browser.goto 'google.com'\` navigates to a URL
-  * \`browser.url\` gets the current URL
-  * \`browser.text\` gets text of the entire page
-  * \`browser.quit\` quits the browser window
-
-#### Element Selectors
-
-The different ways you can locate a HTML element on a page. The most specific selector (\`id\` or \`name\`) is usually the best,
-otherwise your test code might be very brittle!
-
-  * \`browser.div.text\` gets text of the first \`<div>\` on the page _**(not great)**_
-  * \`browser.div(class: 'content').text\` gets text of the first \`<div class="content">\` _**(better)**_
-  * \`browser.div(id: 'intro').text\` gets text of the unique \`<div id="intro">\` _**(best!)**_
-
-#### HTML Elements vs. Accessor Methods
-
-Also see [the official Watir website](http://watir.com/guides/elements/) for the most up-to-date list.
-`
-
-const rspec = `
-### RSpec
-
-#### Boilerplate
-
-  \`\`\`
-  RSpec.describe "Slick's website" do
-    before :all do
-      @browser = Watir::Browser.new :chrome
-    end
-
-    it "has a link to cheat sheets" do
-      @browser.goto 'http://slick.surge.sh'
-      @browser.link(id: 'cheat-sheet-link').click
-      expect(browser.h2.text).to include /cheat sheet/i
-    end
-  end
-  \`\`\`
-
-#### Expectations
-
-##### Text
-
-\`\`\`
-actual = browser.div.text
-expected = "Welcome back!"
-expect(actual).to eq(expected)
-\`\`\`
-`
+import {files} from '../helper/markdown'
 
 export default () => (
   <Content>
     <h2 style={styles.title}>Cheat Sheets</h2>
     <p style={styles.subtitle}>Use&nbsp;<code>Ctrl + F</code>&nbsp;/&nbsp;<code>⌘ + F</code>&nbsp;to search the page.</p>
 
-    <Markdown source={watir} />
+    <Markdown source={files.get('watir-cheatsheet.md')} />
     <AccessorTable />
-    <Markdown source={rspec} />
+    <Markdown source={files.get('rspec-cheatsheet.md')} />
 
   </Content>
 )

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import renderers from '../style/markdown'
+import {renderers} from '../helper/markdown'
 
 const Markdown = (props) => {
   return (

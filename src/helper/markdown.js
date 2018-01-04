@@ -54,11 +54,27 @@ const CodeBlock = ({language, value}) => {
   )
 }
 
-const renderers = {
+export const renderers = {
   code: CodeBlock,
   heading: Heading,
   listItem: ListItem,
   paragraph: Paragraph,
 }
 
-export default renderers
+// HACK from https://github.com/facebookincubator/create-react-app/issues/2961#issuecomment-344198546
+const webpackRequireContext = require.context(
+  '!raw-loader!../markdown',
+  false,
+  /\.md$/,
+)
+
+// Convert to Map
+export const files = webpackRequireContext.keys().reduce((map, fileName) => {
+  const markdown = webpackRequireContext(fileName)
+  // remove the leading './'
+  if (fileName.startsWith('./')){
+    fileName = fileName.substr(2)
+  }
+
+  return map.set(fileName, markdown);
+}, new Map())
