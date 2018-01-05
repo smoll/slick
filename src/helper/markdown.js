@@ -89,10 +89,10 @@ const Html = (props) => {
   let el
   for (let component of components) {
     if (props.value.startsWith(component.tag)) {
-      const textRegex = /text="([^\"]+)"/
+      const textRegex = /text="([^"]+)"/
       const text = textRegex.test(props.value) && textRegex.exec(props.value)[1]
 
-      const intentRegex = /intent="([^\"]+)"/
+      const intentRegex = /intent="([^"]+)"/
       const intent = intentRegex.test(props.value) && intentRegex.exec(props.value)[1]
 
       el = component.create({text, intent})

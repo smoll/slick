@@ -9,8 +9,6 @@ export default ({text}) => (
     position={Position.RIGHT}
 >
     <Icon iconName="pt-icon-info-sign" iconSize={16} intent={Intent.PRIMARY} />
-    <div>
-      <ReactMarkdown source={text} />
-    </div>
+    <ReactMarkdown source={text} />
 </Popover>
 )

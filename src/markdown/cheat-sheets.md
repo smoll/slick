@@ -53,15 +53,15 @@ These are the different ways you can locate a specific HTML element on a page.
 
 Also see [the official Watir website](http://watir.com/guides/elements/) for the most up-to-date list.
 
-| HTML | Method | Example Code <Note text="Note that `b` refers to a browser instance, e.g. ```b = Watir::Browser.new```" /> |
-| ---- | ------ | ------------ |
-| `<input type="text">` | text_field | `b.text_field(id: 'u').set 'foo'` |
-| `<select />` | select_list | `b.select_list(id: 'm').select 'Camry'` |
-| `<input type="radio">` | radio | `b.radio(value: 'female')` |
-| `<input type="checkbox">` | checkbox | `b.checkbox(value: 'no_reason')` |
-| `<input type="button">` or `<button>` | button | `b.button(id: 'x').click` |
-| `<a href="https://goo.gl">Click me!</a>` | link | `b.link.click` |
-| `<div>lorem</div>` or `<span>ipsum</span>` | div, span, etc. | `b.div.text` |
+| HTML  | Method | Example Code <Note text="Note that `b` refers to a browser instance, e.g. ```b = Watir::Browser.new```" /> |
+| ------------------------------------------ | --------------- | --------------------------------------- |
+| `<input type="text">`                      | text_field      | `b.text_field(id: 'u').set 'foo'`       |
+| `<select />`                               | select_list     | `b.select_list(id: 'm').select 'Camry'` |
+| `<input type="radio">`                     | radio           | `b.radio(value: 'female')`              |
+| `<input type="checkbox">`                  | checkbox        | `b.checkbox(value: 'no_reason')`        |
+| `<input type="button">` or `<button>`      | button          | `b.button(id: 'x').click`               |
+| `<a href="https://goo.gl">Click me!</a>`   | link            | `b.link.click`                          |
+| `<div>lorem</div>` or `<span>ipsum</span>` | div, span, etc. | `b.div.text`                            |
 
 ### RSpec
 
