@@ -1,7 +1,6 @@
-<center>
-  <h2>Cheat Sheets</h2>
-  <p>Use <code>Ctrl + F</code> / <code>⌘ + F</code> to search the page.</p>
-</center>
+## Cheat Sheets
+
+<center>Hint: Use <code>Ctrl + F</code> / <code>⌘ + F</code> to search the page.</center>
 
 ### Watir
 
@@ -30,15 +29,15 @@ Here are methods available to a `browser` instance. For a full list, try `browse
 
 #### Element Selectors
 
-These are different ways you can locate a specific HTML element on a page.
+These are the different ways you can locate a specific HTML element on a page.
 
-##### via nesting
+##### via nesting <Tag intent="danger" text="not ideal" />
 * `browser.div.text` gets text of the first `<link>` in the first `<div>` on the page
 
-##### via class
+##### via class <Tag intent="warning" text="better" />
 * `browser.div(class: 'content').text` gets text of the first `<div class="content">`
 
-##### via id
+##### via id <Tag intent="success" text="best!" />
 * `browser.div(id: 'intro').text` gets text of the unique `<div id="intro">`
 
 
@@ -68,7 +67,7 @@ Also see [the official Watir website](http://watir.com/guides/elements/) for the
 
 #### Boilerplate
 
-```
+```rb
 # /spec/homepage_spec.rb
 
 RSpec.describe "Slick's website" do
@@ -92,7 +91,7 @@ end
 
 ##### Text
 
-```
+```rb
 actual = browser.div.text
 expected = "Welcome back!"
 expect(actual).to eq(expected)
@@ -100,25 +99,25 @@ expect(actual).to eq(expected)
 
 ##### Numeric Comparisons
 
-```
+```rb
 actual = 4.9
 expected = 5
-delta = 0.2
 
 expect(actual).to be > expected
-# false
+# fail!
 
 expect(actual).to be >= expected
-# false
+# fail!
 
 expect(actual).to be <= expected
-# true
+# pass
 
 expect(actual).to be < expected
-# true
+# pass
 
+delta = 0.2
 expect(actual).to be_within(delta).of(expected)
-# true
+# pass
 ```
 
 ### Bundler

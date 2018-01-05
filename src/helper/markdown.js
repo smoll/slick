@@ -2,10 +2,13 @@ import React from 'react'
 import Lowlight from 'react-lowlight'
 import js from 'highlight.js/lib/languages/javascript'
 import rb from 'highlight.js/lib/languages/ruby'
+import sh from 'highlight.js/lib/languages/shell'
 import Note from '../component/Note'
+import Tag from '../component/Tag'
 
 Lowlight.registerLanguage('js', js)
 Lowlight.registerLanguage('rb', rb)
+Lowlight.registerLanguage('sh', sh)
 
 // Override ReactMarkdown default styles
 const styles = {
@@ -16,6 +19,10 @@ const styles = {
   h: {
     marginTop: '1em',
     lineHeight: '1.5em',
+  },
+  h2: {
+    textAlign: 'center',
+    marginBottom: '1em',
   },
   li: {
     marginTop: '1em',
@@ -30,7 +37,7 @@ const getCoreProps = (props) => {
 
 // Renderers from https://github.com/rexxars/react-markdown/blob/f7c60d39db560aed7399939675e624d14ff82b40/src/renderers.js
 const Heading = (props) => {
-  const styleProps = {style: styles.h}
+  const styleProps = {style: {...styles.h, ...(props.level === 2 ? styles.h2 : {})}}
   return createElement(`h${props.level}`, {...styleProps, ...getCoreProps(props)}, props.children)
 }
 const Paragraph = ({children}) => (
@@ -51,26 +58,46 @@ const CodeBlock = ({language, value}) => {
     <Lowlight
       language={language || 'rb'}
       value={value}
+      inline={false}
+    />
+  )
+}
+const InlineCode = ({value}) => {
+  return (
+    <Lowlight
+      value={value}
+      inline={true}
     />
   )
 }
 const Table = ({children}) => (
   <table className="pt-table pt-striped">{children}</table>
 )
+
 const Html = (props) => {
+  const components = [
+    { tag: '<Note', create: (props) => createElement(Note, props) },
+    { tag: '<Tag', create: (props) => createElement(Tag, props) },
+  ]
+
   if (props.skipHtml) {
     return null
   }
 
   // console.log('Html props:', props)
 
-  if (props.value.startsWith('<Note')) {
-    const regex = /text="(.+)"/
-    const matches = regex.exec(props.value)
-    // console.log('value', props.value)
-    // console.log('matches', matches)
-    const text = matches[1]
-    return <Note text={text} />
+  let el
+  for (let component of components) {
+    if (props.value.startsWith(component.tag)) {
+      const textRegex = /text="([^\"]+)"/
+      const text = textRegex.test(props.value) && textRegex.exec(props.value)[1]
+
+      const intentRegex = /intent="([^\"]+)"/
+      const intent = intentRegex.test(props.value) && intentRegex.exec(props.value)[1]
+
+      el = component.create({text, intent})
+      return el
+    }
   }
 
   // Original definition follows...
@@ -89,6 +116,7 @@ export const renderers = {
   code: CodeBlock,
   heading: Heading,
   html: Html,
+  inlineCode: InlineCode,
   listItem: ListItem,
   paragraph: Paragraph,
   table: Table,
